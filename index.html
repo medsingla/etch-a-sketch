@@ -9,6 +9,19 @@
 </head>
 <body>
     <script src="javascript.js" defer></script>
-    <div id="container"></div>
+    <div class="title">Etch a Sketch!</div>
+    <div class="panel">
+        <div class="options">
+            <div class="header">Hold down click inside the grid to draw</div>
+            <div class="size"></div>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="25" class="slider" id="myRange">
+              </div>
+        </div>
+        <div class="sketch">
+            <div id="container"></div>
+        </div>
+    </div>
+        
 </body>
 </html>

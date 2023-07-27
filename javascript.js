@@ -1,10 +1,14 @@
-let mode = false;
+
 
 const container = document.querySelector('#container');
 
-for(let i = 0; i < 16; i++) {
+// All of the following code is to get the grid to draw properly
+
+let mode = false; //Alternate between drawing and hovering mode
+
+for(let i = 0; i < 625; i++) { //Create all of the grid boxes, based on user's desired amount
     let div = document.createElement('div');
-    div.style.background = "transparent";
+    div.style.background = "white";
     div.addEventListener("mousedown", drawMode);
     div.addEventListener("mouseover", makeColor);
     div.addEventListener("mouseout", makeTrans);
@@ -14,9 +18,9 @@ for(let i = 0; i < 16; i++) {
 
 let tiles = document.querySelectorAll('#container > div');
 
-function makeColor(e) {
+function makeColor(e) { //Set colors of tiles based on mode as well as desired user color
     if(!mode) {
-        if (e.target.style.background == "transparent") {
+        if (e.target.style.background == "white") {
             e.target.style.cssText = "background: green;";
         }
     }
@@ -26,7 +30,7 @@ function makeColor(e) {
 }
 
 function makeTrans(e) {
-    e.target.style.cssText = "background: transparent";
+    e.target.style.cssText = "background: white";
 }
 
 function drawMode(e) {
@@ -40,7 +44,7 @@ function changeToDraw(div) {
 }
 
 function changeToHover(div) {
-    if (div.style.background == "transparent") {
+    if (div.style.background == "white") {
         div.addEventListener("mouseout", makeTrans);
     }
 }
@@ -49,3 +53,9 @@ function hoverMode(div) {
     mode = false;
     tiles.forEach(changeToHover);
 }
+
+// =========================================================
+
+// Code for slider that determines grid size
+
+let slider = document.querySelector('#myRange');
