@@ -13,10 +13,27 @@
     <div class="panel">
         <div class="options">
             <div class="header">Hold down click inside the grid to draw</div>
-            <div class="size"></div>
-            <div class="slidecontainer">
+            <div class="gridOptions">
+                <div class="size">Grid Size: 25 x 25</div>
+                <div class="slidecontainer">
+            </div>
                 <input type="range" min="1" max="100" value="25" class="slider" id="myRange">
-              </div>
+            </div>
+            <div class="colorSelect">
+                <div>Choose Color:</div>
+                <div class="form">
+                    <input type="radio" name="color" value="blue">
+                    <label for="blue">Blue</label><br>
+                    <input type="radio" name="color" value="black" checked="checked">
+                    <label for="black">Black</label><br>
+                    <input type="radio" name="color" value="rainbow">
+                    <label for="blue">Rainbow</label><br>
+                    <input type="radio" name="color" value="shade">
+                    <label for="blue">Black Shade</label><br>
+                    <input type="radio" name="color" value="custom">
+                    <label for="blue"> Custom: <input type="color" id="colorpicker"></label><br>
+                </div>
+            </div>
         </div>
         <div class="sketch">
             <div id="container"></div>
