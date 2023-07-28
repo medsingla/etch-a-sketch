@@ -86,7 +86,7 @@ slider.oninput = function() {
 // =========================================================
 
 // Code for color selector
-let form = document.querySelector(".form");
+let form = document.querySelector("#form");
 let custom = document.querySelector("#colorpicker");
 
 function updateColor(div) { //Update boxes to desired color choice
@@ -96,13 +96,12 @@ function updateColor(div) { //Update boxes to desired color choice
 }
 
 form.addEventListener("change", function() {
-    tiles.forEach(updateColor);
+        tiles.forEach(updateColor);
 })
 
 function colorSelect(e) { //Necessary since shaded and rainbow have unique coloring code
     if (color == "shade") {
         let increase = Number(e.target.style.opacity) + 0.1;
-        console.log(increase);
         e.target.style.cssText = `background-color: rgb(0, 0, 0); opacity: ${increase}`; 
     }
     else if (color == "rainbow") {
@@ -122,3 +121,20 @@ function colorSelect(e) { //Necessary since shaded and rainbow have unique color
 }
 
 // =========================================================
+
+// Code for eraser
+
+let eraser = document.querySelector("#erase");
+let clear = document.querySelector("#clear");
+
+eraser.addEventListener("change", function() { //Need specific erase function to override regular color selector
+    tiles.forEach(updateColor);
+})
+
+clear.addEventListener("click", function() {
+    console.log("yes");
+    container.replaceChildren();
+    value = slider.value;
+    updateGrid(value);
+    tiles = document.querySelectorAll('#container > div');
+})
